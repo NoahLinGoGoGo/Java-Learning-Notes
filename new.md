@@ -21,7 +21,7 @@ hotWords.add("patato");
 遍历数组
 方式1：使用标准的for循环
 方式2：for each
-方式2：Arrays.toString()打印
+方式2：Arrays.toString(array)打印,适用long，float，double，int，boolean，byte，object元素的一维数组，对于引用类型的数组，需要重写该引用类的 toString() 方法
 */
 for (int i = 0; i < hotWords.size(); i ++) {
     String value = hotWords.get(i);
