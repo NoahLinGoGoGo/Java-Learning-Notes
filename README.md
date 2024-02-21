@@ -1,3 +1,10 @@
+
+
+
+[核心实践派](./new.md) 
+
+
+
 # Java-Learning-Notes
 Java从入门到放弃
 ##  Java语法基础
