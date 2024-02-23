@@ -103,3 +103,71 @@ for (String key : map.keySet()) {
 //}
 
 ```
+##  类和对象
+```java
+package com.example.sdklibrary.tools;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonNull;
+import com.google.gson.JsonSyntaxException;
+import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONObject;
+
+import java.lang.reflect.Type;
+import java.util.Map;
+
+/**
+ * Gson工具类，本来这个类中还有很多个方法，例如gson转为map,object等等由于和这个知识点相同，没有好讲解的，我删除了  
+ */
+
+public class GsonUtils {
+
+    private static Gson gson = null;
+     /**
+     静态块: 用static{}裹起来的代码片段，只会被执行一次，第一次加载此类时执行，静态块 先于 构造块执行。
+     static{
+     //code
+     }
+    其实下面的 静态块 也可以写成 单例，这里不用单例是因为没必要，类的方法都是static的
+    private static GsonUtils getInstance() {
+        if (gson == null) {
+            gson = new Gson();
+        }
+        return netRequest;
+    }
+
+     构造块: 用{}裹起来的代码片段，构造块在创建对象时会被调用，
+     每次创建对象时都会被调用，并且优先于类构造函数执行。构造块中定义的变量是局部变量。
+     {
+     //code
+     }
+     */
+    static {
+        if (gson == null) {
+            gson = new Gson();
+        }
+    }
+    /**
+    构造函数constructor
+    可以定义多个构造方法，编译器根据参数自动判断。
+    可以在一个构造方法内部调用另一个构造方法，便于代码复用。
+    */ 
+    private GsonUtils() {
+    }
+
+    /**
+     * 将json转成bean
+    */
+    public static <T> T GsonToBean(String gsonString, Class<T> cls) {
+        T t = null;
+        if (gson != null) {
+            t = gson.fromJson(gsonString, cls);
+        }
+        return t;
+    }
+}
+
+## 基类object的生命周期和常用函数
+
+```
