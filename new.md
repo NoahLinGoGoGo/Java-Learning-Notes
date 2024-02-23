@@ -129,6 +129,13 @@ public class GsonUtils {
      static{
      //code
      }
+
+     构造块: 用{}裹起来的代码片段，构造块在创建对象时会被调用，
+     每次创建对象时都会被调用，并且优先于类构造函数执行。构造块中定义的变量是局部变量。
+     {
+     //code
+     }
+
     其实下面的 静态块 也可以写成 单例，这里不用单例是因为没必要，类的方法都是static的
     private static GsonUtils getInstance() {
         if (gson == null) {
@@ -136,12 +143,6 @@ public class GsonUtils {
         }
         return netRequest;
     }
-
-     构造块: 用{}裹起来的代码片段，构造块在创建对象时会被调用，
-     每次创建对象时都会被调用，并且优先于类构造函数执行。构造块中定义的变量是局部变量。
-     {
-     //code
-     }
      */
     static {
         if (gson == null) {
