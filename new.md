@@ -170,12 +170,6 @@ public class GsonUtils {
     }
 }
 
-## 基类Object和常用函数
-
-Object 类位于 java.lang 包中, 是所有类的父类。哪怕在Java中定义隐式继承`public class UserBean {}`，其实等价于`public class UserBean extends Object{}`。
-
-[Object类的API](https://www.runoob.com/java/java-object-class.html)
-
 ## 泛型
 
 在看项目代码时候我经常遇到 泛型 语法，和iOS 不一样
@@ -226,7 +220,7 @@ public class Box<T> {
   }
 }
 
-// 类型通配符 ?
+// 类型通配符 ?, 例如 List<?> 在逻辑上是 List<String>,List<Integer> 等所有 List<具体类型实参> 的父类。
 public static void getData(List<?> data) {
       System.out.println("data :" + data.get(0));
 }
@@ -235,3 +229,11 @@ public static void getUperNumber(List<? extends Number> data) {
           System.out.println("data :" + data.get(0));
 }
 ```
+
+## 基类Object和常用函数
+
+Object 类位于 java.lang 包中, 是所有类的父类。哪怕在Java中定义隐式继承`public class UserBean {}`，其实等价于`public class UserBean extends Object{}`。
+
+[Object类的API](https://www.runoob.com/java/java-object-class.html)
+
+
