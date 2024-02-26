@@ -21,7 +21,8 @@ hotWords.add("patato");
 遍历数组
 方式1：使用标准的for循环
 方式2：for each
-方式2：Arrays.toString(array)打印,适用long，float，double，int，boolean，byte，object元素的一维数组，对于引用类型的数组，需要重写该引用类的 toString() 方法
+方式2：Arrays.toString(array)打印,适用long，float，double，int，boolean，byte，object元素的一维数组，
+对于引用类型的数组，需要重写该引用Object的 toString() 方法
 */
 for (int i = 0; i < hotWords.size(); i ++) {
     String value = hotWords.get(i);
@@ -30,7 +31,6 @@ for (int i = 0; i < hotWords.size(); i ++) {
 /*
 数组排序
 1.对于String或Integer这些已经实现Comparable接口的类来说，可以直接使用Collections.sort方法传入list参数来实现默认方式（正序）排序；
-
 2.如果不想使用默认方式（正序）排序，可以通过Collections.sort传入第二个参数类型为Comparator来自定义排序规则；
         Collections.sort(intList,new Comparator<Integer>() {
             @Override
@@ -159,6 +159,7 @@ public class GsonUtils {
 
     /**
      * 将json转成bean
+       java中有很多<T>这种写法，是 泛型 ，注意类型参数只能代表引用型类型，不能是基本类型
     */
     public static <T> T GsonToBean(String gsonString, Class<T> cls) {
         T t = null;
@@ -169,6 +170,68 @@ public class GsonUtils {
     }
 }
 
-## 基类object的生命周期和常用函数
+## 基类Object和常用函数
 
+Object 类位于 java.lang 包中, 是所有类的父类。哪怕在Java中定义隐式继承`public class UserBean {}`，其实等价于`public class UserBean extends Object{}`。
+
+[Object类的API](https://www.runoob.com/java/java-object-class.html)
+
+## 泛型
+
+在看项目代码时候我经常遇到 泛型 语法，和iOS 不一样
+
+// 泛型方法 printArray                         
+public static <E> void printArray( E[] inputArray ) {
+      // 输出数组元素            
+         for ( E element : inputArray ){        
+            System.out.printf( "%s ", element );
+         }
+         System.out.println();
+}
+
+// 限制参数的类型"extends"（类）或者"implements"（接口），泛型方法，比较三个值并返回最大值
+public static <T extends Comparable<T>> T maximum(T x, T y, T z) {                     
+      T max = x; // 假设x是初始最大值
+      if ( y.compareTo( max ) > 0 ){
+         max = y; //y 更大
+      }
+      if ( z.compareTo( max ) > 0 ){
+         max = z; // 现在 z 更大           
+      }
+      return max; // 返回最大对象
+}
+
+// 泛型类
+public class Box<T> {
+   
+  private T t;
+ 
+  public void add(T t) {
+    this.t = t;
+  }
+ 
+  public T get() {
+    return t;
+  }
+ 
+  public static void main(String[] args) {
+    Box<Integer> integerBox = new Box<Integer>();
+    Box<String> stringBox = new Box<String>();
+ 
+    integerBox.add(new Integer(10));
+    stringBox.add(new String("菜鸟教程"));
+ 
+    System.out.printf("整型值为 :%d\n\n", integerBox.get());
+    System.out.printf("字符串为 :%s\n", stringBox.get());
+  }
+}
+
+// 类型通配符 ?
+public static void getData(List<?> data) {
+      System.out.println("data :" + data.get(0));
+}
+   
+public static void getUperNumber(List<? extends Number> data) {
+          System.out.println("data :" + data.get(0));
+}
 ```
