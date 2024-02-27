@@ -152,15 +152,15 @@ public class GsonUtils {
     }
     /**
     构造函数constructor
-    可以定义多个构造方法，编译器根据参数自动判断。
-    可以在一个构造方法内部调用另一个构造方法，便于代码复用。
+    可以定义多个构造方法，编译器根据参数自动判断, 在Java中叫重载。
+    也可以在一个构造方法内部调用另一个构造方法，便于代码复用。
     */ 
     private GsonUtils() {
     }
 
     /**
      * 将json转成bean
-       java中有很多<T>这种写法，是 泛型 ，注意类型参数只能代表引用型类型，不能是基本类型
+       java中有很多<T>这种写法，是 泛型 ，注意泛型只能代表引用型类型，不能是基本类型
     */
     public static <T> T GsonToBean(String gsonString, Class<T> cls) {
         T t = null;
