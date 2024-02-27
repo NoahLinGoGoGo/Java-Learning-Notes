@@ -148,6 +148,7 @@ public class GsonUtils {
         if (gson == null) {
             gson = new Gson();
         }
+        return gson;
     }
     /**
     构造函数constructor
