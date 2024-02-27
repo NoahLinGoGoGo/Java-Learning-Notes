@@ -141,7 +141,7 @@ public class GsonUtils {
         if (gson == null) {
             gson = new Gson();
         }
-        return netRequest;
+        return gson;
     }
      */
     static {
