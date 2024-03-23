@@ -7,7 +7,7 @@
 import java.util.List; 
 /*
 List：一种有序列表的集合的接口，例如，按索引排列的Student对象的List；
-java.util.Set：一种保证没有重复元素的集合的接口，例如，所有无重复名称的Student对象的Set；
+java.util.Set：一种保证没有重复元素的`列表`集合的接口，例如，所有无重复名称的Student对象的Set；最常用的实现类java.util.HashSet;
 */
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,7 +21,7 @@ hotWords.add("patato");
 遍历数组
 方式1：使用标准的for循环
 方式2：for each
-方式2：Arrays.toString(array)打印,适用long，float，double，int，boolean，byte，object元素的一维数组，
+方式3：Arrays.toString(array)打印,适用long，float，double，int，boolean，byte，object元素的一维数组，
 对于引用类型的数组，需要重写该引用Object的 toString() 方法
 */
 for (int i = 0; i < hotWords.size(); i ++) {
@@ -170,11 +170,12 @@ public class GsonUtils {
         return t;
     }
 }
-
+```
 ## 泛型
 
 在看项目代码时候我经常遇到 泛型 语法，和iOS 不一样
 
+```java
 // 泛型方法 printArray                         
 public static <E> void printArray( E[] inputArray ) {
       // 输出数组元素            
